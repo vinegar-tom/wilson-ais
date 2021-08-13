@@ -2,7 +2,7 @@ function mergeAlike() {
   const sheet = SpreadsheetApp.getActiveSheet();
   const primaryIDs = sheet.getRange(2, 9, sheet.getLastRow() - 1).getValues();
 
-  var rowCount = 0;
+  let rowCount = 0;
   const alikeRows = [];
 
   for (let i = 0; i < primaryIDs.length; i++) {
@@ -18,7 +18,7 @@ function mergeAlike() {
     }
   }
 
-  var row = 2;
+  let row = 2;
 
   for (const number of alikeRows) {
     sheet.getRange(row, 12, number).merge();

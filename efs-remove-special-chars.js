@@ -4,7 +4,7 @@ function removeSpecialChars() {
   const lineNotes = lineNotesRange.getValues();
 
   const nonASCII = /[^\x00-\x7F]/gu;
-  const otherIllegal = /["<>%]/gu;
+  const otherIllegal = /["<>%`]/gu;
   const ampersand = /&/gu;
 
   for (let i = 0; i < lineNotes.length; i++) {

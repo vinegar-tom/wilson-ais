@@ -9,6 +9,21 @@ function formatPullRequests() {
 
   const colA = sheet.getRange(1, 1, sheet.getLastRow());
   sheet.moveColumns(colA, 3);
+  
+  // Delete rows with Borchert Map Library locations
+  const locations = sheet.getRange(2, 1, sheet.getLastRow() - 1).getValues();
+  
+  const borchertRows = [];
+  for (let i = 0; i < locations.length; i++) {
+    const location = locations[i][0];
+    if (location.startsWith('Borchert')) borchertRows.push(i + 2);
+  }
+
+  let offset = 0;
+  for (const rowNum of borchertRows) {
+    sheet.deleteRow(rowNum - offset);
+    offset += 1;
+  }
 
   // Insert "Process at" and "Found?" columns
   sheet.insertColumnsAfter(7, 2);

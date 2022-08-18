@@ -8,7 +8,7 @@ function removeSpecialChars() {
   const ampersand = /&/gu;
 
   for (let i = 0; i < lineNotes.length; i++) {
-    let lineNote = lineNotes[i][0];
+    let lineNote = lineNotes[i][0].normalize("NFKD");
 
     lineNote = lineNote.replaceAll(nonASCII, '');
     lineNote = lineNote.replaceAll(otherIllegal, '');

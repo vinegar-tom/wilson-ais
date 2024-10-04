@@ -6,7 +6,6 @@ function onFormSubmit(e) {
   const callNumber = itemResponses[1];
 
   // Description is always item immediately before call number question
-  formItems[callNumber.getItem().getIndex() - 1].setHelpText(
-    `Start at: ${callNumber.getResponse()}`
-  );
+  formItems[callNumber.getItem().getIndex() - 1].asPageBreakItem()
+    .setHelpText(`Start at: ${callNumber.getResponse()}`);
 }

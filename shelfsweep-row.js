@@ -5,9 +5,8 @@ function onFormSubmit(e) {
 
   // 4th floor has only one active section
   if (itemResponses[0].getResponse() === '4th Floor') {
-    formItems[itemResponses[1].getItem().getIndex() - 1].setHelpText(
-      `Start at row: ${itemResponses[1].getResponse()}`
-    );
+    formItems[itemResponses[1].getItem().getIndex() - 1].asPageBreakItem()
+      .setHelpText(`Start at row: ${itemResponses[1].getResponse()}`);
   // 2nd and 3rd floor have two active sections
   } else {
     try {
